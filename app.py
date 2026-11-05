@@ -26,6 +26,9 @@ def home():
 
 @app.route("/products")
 def products():
+    category = request.args.get("category")
+    if category:
+        return jsonify([p for p in PRODUCTS if p["category"] == category])
     return jsonify(PRODUCTS)
 
 
