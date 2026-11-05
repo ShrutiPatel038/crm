@@ -1,10 +1,6 @@
 from app import PRODUCTS
 
-def validate(product):
-    return product["name"] != "" and product["price"] >= 0
-
 for p in PRODUCTS:
-    assert validate(p), f"Invalid product: {p}"
-    print("Valid:", p["name"])
+    assert p["name"] and p["price"] >= 0, "Invalid product"
 
 print("All products are valid")
